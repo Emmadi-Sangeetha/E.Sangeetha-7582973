@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onbeforeunload="return confirmLeave()">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#registration">Register</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Welcome Banner -->
+    <section id="home">
+        <div id="welcomeBanner">
+            <h1>Welcome to the Community Event Portal</h1>
+
+            <span style="color:red; font-weight:bold;">
+                Special Offer: Free Entry for Early Registrations!
+            </span>
+        </div>
+
+        <p class="highlight">
+            Join exciting community events happening near you.
+        </p>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+        <h2>Upcoming Events</h2>
+
+        <ul>
+            <li>Music Festival</li>
+            <li>Food Carnival</li>
+            <li>Dance Competition</li>
+        </ul>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="gallery">
+
+        <h2>Event Gallery</h2>
+
+        <table>
+
+            <tr>
+
+                <td>
+                    <img src="images/music_fest.jpg"
+                        alt="Music Event"
+                        title="Music Event"
+                        class="galleryImage">
+
+                    <p>Music Festival</p>
+                </td>
+
+                <td>
+                    <img src="images/food_fest.jpg"
+                        alt="Food Event"
+                        title="Food Event"
+                        class="galleryImage">
+
+                    <p>Food Carnival</p>
+                </td>
+
+                <td>
+                    <img src="images/dance_fest.jpeg"
+                        alt="Dance Event"
+                        title="Dance Event"
+                        class="galleryImage"
+                        ondblclick="enlargeImage(this)">
+
+                    <p>Dance Show</p>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Registration Form -->
+    <section id="registration">
+
+        <h2>Event Registration</h2>
+
+        <form onsubmit="showMessage(event)">
+
+            <input type="text"
+                placeholder="Enter Name"
+                required
+                autofocus>
+
+            <br><br>
+
+            <input type="email"
+                placeholder="Enter Email"
+                required>
+
+            <br><br>
+
+            <input type="text"
+                id="phone"
+                placeholder="Enter Phone Number"
+                onblur="validatePhone()">
+
+            <br><br>
+
+            <input type="date">
+
+            <br><br>
+
+            <select id="eventType"
+                onchange="savePreference(); showFee()">
+
+                <option value="">Select Event</option>
+                <option value="Music">Music</option>
+                <option value="Dance">Dance</option>
+                <option value="Food">Food</option>
+
+            </select>
+
+            <p id="fee"></p>
+
+            <br>
+
+            <textarea id="feedback"
+                placeholder="Enter Feedback"
+                onkeyup="countCharacters()"></textarea>
+
+            <p id="charCount">Characters: 0</p>
+
+            <br>
+
+            <button type="submit">
+                Register
+            </button>
+
+            <output id="confirmation"></output>
+
+        </form>
+
+
+    </section>
+
+    <!-- Video Section -->
+    <section>
+
+        <h2>Promo Video</h2>
+
+        <video width="400"
+            controls
+            oncanplay="videoReady()">
+
+            <source src="images/Community_Event_Portal_Colorful_Demo.mp4" type="video/mp4">
+
+        </video>
+
+    </section>
+
+    <!-- Geolocation -->
+    <section>
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email: community@events.com</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Local Community Event Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
